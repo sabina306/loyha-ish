@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
     const login = (email) => {
         const userData = {
             email,
+            displayName: email.split('@')[0],
             loginDate: new Date().toISOString()
         };
         localStorage.setItem('phpmaster_user', JSON.stringify(userData));
@@ -40,11 +41,18 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(false);
     };
 
+    const updateProfile = (updates) => {
+        const updatedUser = { ...user, ...updates };
+        localStorage.setItem('phpmaster_user', JSON.stringify(updatedUser));
+        setUser(updatedUser);
+    };
+
     const value = {
         user,
         isAuthenticated,
         login,
-        logout
+        logout,
+        updateProfile,
     };
 
     return (

@@ -14,15 +14,15 @@ const CodeEditor = ({ code, onChange }) => {
     const lineNumbers = Array.from({ length: Math.max(lines, 15) }, (_, i) => i + 1);
 
     return (
-        <div className="flex flex-col h-full bg-[#1e1e1e]/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 shadow-2xl ring-1 ring-white/5">
-            <div className="flex items-center justify-between px-4 py-3 bg-[#1e1e1e] border-b border-white/5">
+        <div className="flex flex-col h-full bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-200 shadow-xl ring-1 ring-slate-100">
+            <div className="flex items-center justify-between px-4 py-3 bg-slate-50/80 border-b border-slate-200">
                 <div className="flex items-center space-x-2">
                     <div className="flex space-x-1.5 mr-4">
-                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-red-400" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                        <div className="w-3 h-3 rounded-full bg-green-400" />
                     </div>
-                    <span className="text-xs text-gray-400 font-mono flex items-center">
+                    <span className="text-xs text-slate-500 font-mono flex items-center font-bold tracking-wider">
                         <span className="text-brand-primary mr-1">⚡</span>
                         index.php
                     </span>
@@ -34,7 +34,7 @@ const CodeEditor = ({ code, onChange }) => {
                     {/* Line Numbers */}
                     <div
                         ref={lineNumbersRef}
-                        className="bg-[#1e1e1e]/50 text-gray-600 select-none text-right pr-4 pl-4 py-4 border-r border-white/5 overflow-hidden w-16 leading-relaxed font-medium"
+                        className="bg-slate-50/50 text-slate-400 select-none text-right pr-4 pl-4 py-4 border-r border-slate-200 overflow-hidden w-16 leading-relaxed font-bold"
                     >
                         {lineNumbers.map(num => (
                             <div key={num}>{num}</div>
@@ -48,19 +48,19 @@ const CodeEditor = ({ code, onChange }) => {
                         value={code}
                         onChange={(e) => onChange(e.target.value)}
                         onScroll={handleScroll}
-                        className="flex-1 bg-transparent border-0 outline-none text-gray-300 resize-none h-full py-4 pr-4 pl-4 leading-relaxed focus:ring-0 overflow-auto custom-scrollbar"
+                        className="flex-1 bg-transparent border-0 outline-none text-slate-800 font-bold resize-none h-full py-4 pr-4 pl-4 leading-relaxed focus:ring-0 overflow-auto custom-scrollbar"
                         spellCheck="false"
                         wrap="off"
                     />
                 </div>
             </div>
 
-            <div className="bg-[#007acc]/90 backdrop-blur text-white px-4 py-1.5 text-[10px] font-medium tracking-wide flex justify-between items-center border-t border-white/5">
+            <div className="bg-brand-primary/10 backdrop-blur text-brand-primary px-4 py-2 text-[10px] font-bold tracking-wider flex justify-between items-center border-t border-brand-primary/20">
                 <div className="flex space-x-4">
-                    <span>PHP 8.2</span>
-                    <span>UTF-8</span>
+                    <span className="bg-white/50 px-2 rounded-md">PHP 8.2</span>
+                    <span className="bg-white/50 px-2 rounded-md">UTF-8</span>
                 </div>
-                <span>Ln {lines}, Col 1</span>
+                <span className="bg-white/50 px-2 rounded-md">Ln {lines}, Col 1</span>
             </div>
         </div>
     );

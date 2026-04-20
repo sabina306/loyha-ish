@@ -14,33 +14,52 @@ export const useProgress = () => {
 export const ProgressProvider = ({ children }) => {
     const { user, isAuthenticated } = useAuth();
     const [completedLessons, setCompletedLessons] = useState([]);
+    const [passedQuizzes, setPassedQuizzes] = useState([]);
 
     // Load progress from localStorage when user logs in
     useEffect(() => {
         if (isAuthenticated && user?.email) {
-            const storageKey = `phpmaster_progress_${user.email}`;
-            const stored = localStorage.getItem(storageKey);
-            if (stored) {
+            const progressKey = `phpmaster_progress_${user.email}`;
+            const quizKey = `phpmaster_quizzes_${user.email}`;
+            
+            const storedProgress = localStorage.getItem(progressKey);
+            const storedQuizzes = localStorage.getItem(quizKey);
+
+            if (storedProgress) {
                 try {
-                    setCompletedLessons(JSON.parse(stored));
+                    setCompletedLessons(JSON.parse(storedProgress));
                 } catch (e) {
                     setCompletedLessons([]);
                 }
             } else {
                 setCompletedLessons([]);
             }
+
+            if (storedQuizzes) {
+                try {
+                    setPassedQuizzes(JSON.parse(storedQuizzes));
+                } catch (e) {
+                    setPassedQuizzes([]);
+                }
+            } else {
+                setPassedQuizzes([]);
+            }
         } else {
             setCompletedLessons([]);
+            setPassedQuizzes([]);
         }
     }, [user?.email, isAuthenticated]);
 
     // Save progress to localStorage whenever it changes
     useEffect(() => {
-        if (isAuthenticated && user?.email && completedLessons.length >= 0) {
-            const storageKey = `phpmaster_progress_${user.email}`;
-            localStorage.setItem(storageKey, JSON.stringify(completedLessons));
+        if (isAuthenticated && user?.email) {
+            const progressKey = `phpmaster_progress_${user.email}`;
+            const quizKey = `phpmaster_quizzes_${user.email}`;
+            
+            localStorage.setItem(progressKey, JSON.stringify(completedLessons));
+            localStorage.setItem(quizKey, JSON.stringify(passedQuizzes));
         }
-    }, [completedLessons, user?.email, isAuthenticated]);
+    }, [completedLessons, passedQuizzes, user?.email, isAuthenticated]);
 
     const markLessonComplete = (lessonId) => {
         if (!completedLessons.includes(lessonId)) {
@@ -48,8 +67,19 @@ export const ProgressProvider = ({ children }) => {
         }
     };
 
+    const markQuizPassed = (quizId) => {
+        const id = parseInt(quizId);
+        if (!passedQuizzes.includes(id)) {
+            setPassedQuizzes([...passedQuizzes, id]);
+        }
+    };
+
     const isLessonCompleted = (lessonId) => {
         return completedLessons.includes(lessonId);
+    };
+
+    const isQuizPassed = (quizId) => {
+        return passedQuizzes.includes(parseInt(quizId));
     };
 
     const isLessonAccessible = (lessonId) => {
@@ -57,7 +87,20 @@ export const ProgressProvider = ({ children }) => {
         if (lessonId === 1) return true;
 
         // A lesson is accessible if the previous lesson is completed
-        return isLessonCompleted(lessonId - 1);
+        const prevCompleted = isLessonCompleted(lessonId - 1);
+        if (!prevCompleted) return false;
+
+        // Mandatory Quizzes at module boundaries
+        // Module 1: 1-4, needs Quiz 1 for Lesson 5
+        if (lessonId === 5 && !isQuizPassed(1)) return false;
+        // Module 2: 5-9, needs Quiz 2 for Lesson 10
+        if (lessonId === 10 && !isQuizPassed(2)) return false;
+        // Module 3: 10-16, needs Quiz 3 for Lesson 17
+        if (lessonId === 17 && !isQuizPassed(3)) return false;
+        // Module 4: 17-58, needs Quiz 4 for Lesson 59
+        if (lessonId === 59 && !isQuizPassed(4)) return false;
+
+        return true;
     };
 
     const getProgressPercentage = (totalLessons) => {
@@ -67,24 +110,23 @@ export const ProgressProvider = ({ children }) => {
 
     const resetProgress = () => {
         setCompletedLessons([]);
+        setPassedQuizzes([]);
         if (user?.email) {
-            const storageKey = `phpmaster_progress_${user.email}`;
-            localStorage.removeItem(storageKey);
+            localStorage.removeItem(`phpmaster_progress_${user.email}`);
+            localStorage.removeItem(`phpmaster_quizzes_${user.email}`);
         }
     };
 
     const hasCertificate = () => {
-        return completedLessons.length >= 60;
+        return completedLessons.length >= 60 && isQuizPassed(5);
     };
 
     const getCertificateData = () => {
         if (!hasCertificate()) return null;
 
-        // Generate certificate ID from user email and completion count
         const baseId = user?.email ? user.email.split('@')[0].toUpperCase() : 'USER';
         const certificateId = `${baseId}-${completedLessons.length}-${Date.now().toString().slice(-6)}`;
 
-        // Get completion date (current date or use last lesson completion)
         const completionDate = new Date().toLocaleDateString('uz-UZ', {
             year: 'numeric',
             month: 'long',
@@ -101,8 +143,11 @@ export const ProgressProvider = ({ children }) => {
 
     const value = {
         completedLessons,
+        passedQuizzes,
         markLessonComplete,
+        markQuizPassed,
         isLessonCompleted,
+        isQuizPassed,
         isLessonAccessible,
         getProgressPercentage,
         resetProgress,

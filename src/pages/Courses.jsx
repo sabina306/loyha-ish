@@ -82,7 +82,7 @@ const Courses = () => {
     };
 
     return (
-        <div className="pt-8 pb-24 px-4 bg-[#0b1120] min-h-screen">
+        <div className="pt-8 pb-24 px-4 bg-transparent min-h-screen">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -94,17 +94,17 @@ const Courses = () => {
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="inline-flex items-center px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-xs font-bold uppercase tracking-wider mb-6"
+                        className="inline-flex items-center px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-sm"
                     >
                         <Star size={14} className="mr-2 fill-current" />
                         Premium Video Kurs (60 Dars)
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 text-white tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-black mb-6 text-slate-800 dark:text-white tracking-tight">
                         Bilimingizni <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Keyingi Bosqichga</span> Olib Chiqing
                     </h2>
 
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
                         @ilmizla kanali tomonidan maxsus tayyorlangan 60 ta darsdan iborat mukammal video kurs. Nazariya va amaliyot bir joyda.
                     </p>
                 </motion.div>
@@ -122,42 +122,42 @@ const Courses = () => {
                             {/* Glow Backdrop */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl blur-2xl`} />
 
-                            <div className="relative bg-[#1e293b] border border-white/5 rounded-3xl p-1 overflow-hidden h-full flex flex-col hover:border-white/10 transition-colors">
-                                <div className="p-8 flex-1 flex flex-col">
+                            <div className="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-1 overflow-hidden h-full flex flex-col hover:border-brand-primary/30 transition-all hover:shadow-xl hover:shadow-brand-primary/10 group">
+                                <div className="p-8 flex-1 flex flex-col bg-slate-50/50 dark:bg-slate-900/30 rounded-2xl">
                                     <div className="flex justify-between items-start mb-8">
-                                        <div className={`p-4 rounded-2xl bg-gradient-to-br ${course.color} text-white shadow-xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                                        <div className={`p-4 rounded-2xl bg-gradient-to-br ${course.color} text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                                             {course.icon}
                                         </div>
                                         {course.badge && (
-                                            <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">
+                                            <span className="px-3 py-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 shadow-sm rounded-full text-[10px] font-bold text-brand-primary uppercase tracking-widest">
                                                 {course.badge}
                                             </span>
                                         )}
                                     </div>
 
-                                    <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-brand-primary transition-colors">
+                                    <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-white group-hover:text-brand-primary transition-colors">
                                         {course.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+                                    <p className="text-slate-500 dark:text-slate-400 text-sm mb-8 leading-relaxed font-medium">
                                         {course.description}
                                     </p>
 
                                     <div className="grid grid-cols-2 gap-4 mb-8">
-                                        <div className="flex items-center space-x-2 text-gray-500">
-                                            <Clock size={14} />
-                                            <span className="text-xs font-medium">{course.duration}</span>
+                                        <div className="flex items-center space-x-2 text-slate-500 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
+                                            <Clock size={14} className="text-brand-primary"/>
+                                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{course.duration}</span>
                                         </div>
-                                        <div className="flex items-center space-x-2 text-gray-500">
-                                            <TrendingUp size={14} />
-                                            <span className="text-xs font-medium">{course.students} o'quvchi</span>
+                                        <div className="flex items-center space-x-2 text-slate-500 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
+                                            <TrendingUp size={14} className="text-brand-secondary"/>
+                                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{course.students}</span>
                                         </div>
                                     </div>
 
                                     <div className="mt-auto">
                                         <button
                                             onClick={() => handleCourseClick(course.id)}
-                                            className={`w-full py-4 rounded-2xl flex items-center justify-center font-black text-sm transition-all duration-300 shadow-lg bg-gradient-to-r ${course.color} text-white hover:shadow-${course.color.split(' ')[1]}/50 group-hover:scale-[1.02] active:scale-95`}
+                                            className={`w-full py-4 rounded-2xl flex items-center justify-center font-black text-sm transition-all duration-300 shadow-md bg-gradient-to-r ${course.color} text-white hover:shadow-lg group-hover:scale-[1.02] active:scale-95`}
                                         >
                                             <Play fill="currentColor" size={16} className="mr-2" />
                                             DARSLARNI BOSHLASH
@@ -175,33 +175,35 @@ const Courses = () => {
                         </motion.div>
                     ))}
 
-                    {/* Bonus Card */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6 }}
-                        className="lg:col-span-3 mt-12 p-8 rounded-3xl bg-gradient-to-r from-brand-primary/20 via-brand-secondary/20 to-brand-primary/20 border border-brand-primary/30 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8 backdrop-blur-sm"
-                    >
-                        <div className="flex items-center space-x-6">
-                            <div className="p-5 bg-white rounded-2xl shadow-2xl">
-                                <TrendingUp className="text-brand-dark" size={32} />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 }}
+                            className="lg:col-span-3 mt-12 p-8 rounded-3xl bg-white dark:bg-slate-800 border border-brand-primary/20 dark:border-slate-700 shadow-2xl flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8 backdrop-blur-sm relative overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl -z-10" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl -z-10" />
+                            
+                            <div className="flex items-center space-x-6 z-10">
+                                <div className="p-5 bg-gradient-to-br from-brand-primary to-brand-accent rounded-2xl shadow-lg">
+                                    <TrendingUp className="text-white" size={32} />
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-black text-slate-800 dark:text-white mb-1">Hali ham ikkilanyapsizmi?</h4>
+                                    <p className="text-slate-600 dark:text-slate-400 text-sm font-medium">60 ta darsni tugatib, xalqaro darajadagi sertifikatga ega bo'ling.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 className="text-xl font-bold text-white mb-1">Hali ham ikkilanyapsizmi?</h4>
-                                <p className="text-gray-400 text-sm">60 ta darsni tugatib, xalqaro darajadagi sertifikatga ega bo'ling.</p>
-                            </div>
-                        </div>
                         {isAuthenticated ? (
                             <Link
                                 to="/course/1"
-                                className="px-10 py-4 bg-white text-brand-dark font-black rounded-2xl hover:bg-gray-100 transition-all shadow-xl whitespace-nowrap"
+                                className="px-10 py-4 bg-gradient-to-r from-brand-primary to-brand-accent text-white font-black rounded-2xl hover:shadow-lg transition-all shadow-md whitespace-nowrap z-10"
                             >
                                 DARSLARNI DAVOM ETTIRISH
                             </Link>
                         ) : (
                             <button
                                 onClick={() => setShowAuthModal(true)}
-                                className="px-10 py-4 bg-white text-brand-dark font-black rounded-2xl hover:bg-gray-100 transition-all shadow-xl whitespace-nowrap"
+                                className="px-10 py-4 bg-gradient-to-r from-brand-primary to-brand-accent text-white font-black rounded-2xl hover:shadow-lg transition-all shadow-md whitespace-nowrap z-10"
                             >
                                 RO'YXATDAN O'TISH
                             </button>

@@ -17,18 +17,18 @@ const CertificatePage = () => {
 
     if (!hasCertificate) {
         return (
-            <div className="min-h-screen bg-brand-dark flex items-center justify-center p-4">
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center"
+                    className="text-center bg-white p-12 rounded-3xl shadow-xl shadow-brand-primary/5 border border-slate-200"
                 >
-                    <Award size={64} className="text-gray-600 mx-auto mb-4" />
-                    <h2 className="text-2xl font-bold text-white mb-4">Sertifikat hali olinmagan</h2>
-                    <p className="text-gray-400 mb-8">
+                    <Award size={64} className="text-slate-400 mx-auto mb-6" />
+                    <h2 className="text-2xl font-black text-slate-800 mb-4">Sertifikat hali olinmagan</h2>
+                    <p className="text-slate-600 font-medium mb-4">
                         Sertifikat olish uchun barcha 60 ta darsni tugating
                     </p>
-                    <p className="text-gray-500 mb-8">
+                    <p className="text-slate-500 font-bold mb-8">
                         Joriy progress: {completedLessons.length} / 60
                     </p>
                     <Link

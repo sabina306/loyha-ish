@@ -7,27 +7,27 @@ const AIChatPage = () => {
     // We'll use the AIChat component instead of local state
 
     return (
-        <div className="min-h-screen bg-brand-dark py-4 px-4">
-            <div className="max-w-6xl mx-auto h-[calc(100vh-2rem)] flex flex-col">
+        <div className="min-h-screen py-4 px-4 bg-transparent relative z-10">
+            <div className="max-w-6xl mx-auto h-[calc(100vh-2rem)] flex flex-col gap-4">
 
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-3 text-center"
+                    className="mb-1 text-center"
                 >
-                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent mb-2">
-                        <Sparkles size={14} className="mr-1.5" />
-                        <span className="text-xs font-medium">AI Yordamchi</span>
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-primary/30 bg-white dark:bg-slate-800 text-brand-primary mb-3 shadow-sm">
+                        <Sparkles size={14} className="mr-1.5 text-brand-accent" />
+                        <span className="text-xs font-bold tracking-wide">AI Yordamchi</span>
                     </div>
-                    <h1 className="text-2xl md:text-3xl font-bold text-white mb-1">
+                    <h1 className="text-2xl md:text-4xl font-black text-slate-800 dark:text-white mb-2">
                         PHP o'rganishda sizga yordam beramiz
                     </h1>
-                    <p className="text-gray-400 text-sm">Savollaringizni bering, biz javob beramiz! 🚀</p>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium text-sm md:text-base">Savollaringizni bering, biz darhol javob beramiz! 🚀</p>
                 </motion.div>
 
                 {/* Chat Container */}
-                <div className="flex-1 bg-[#1e293b] border border-white/10 rounded-2xl overflow-hidden flex flex-col shadow-2xl">
+                <div className="flex-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-3xl overflow-hidden flex flex-col shadow-2xl shadow-brand-primary/10">
                     <AIChat showHeader={false} isFullPage={true} showQuickQuestions={true} />
                 </div>
             </div>
