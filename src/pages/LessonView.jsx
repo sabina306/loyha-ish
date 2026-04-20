@@ -118,7 +118,7 @@ const LessonView = () => {
             {/* Sidebar - Lesson List */}
             <div className="w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 flex flex-col z-20 hidden md:flex shadow-xl shadow-brand-primary/5">
                 <div className="p-6 border-b border-slate-200 dark:border-slate-700">
-                    <button onClick={() => navigate('/courses')} className="flex items-center text-slate-500 hover:text-brand-primary mb-6 transition-colors group font-semibold">
+                    <button onClick={() => navigate('/courses')} className="flex items-center text-slate-500 dark:text-slate-400 hover:text-brand-primary mb-6 transition-colors group font-semibold">
                         <ChevronLeft size={16} className="mr-1 group-hover:-translate-x-1 transition-transform" />
                         Kurslarga qaytish
                     </button>
@@ -160,7 +160,7 @@ const LessonView = () => {
                                 className={`w-full text-left p-4 flex items-center transition-all border-l-2 ${isActive
                                     ? 'bg-brand-primary/5 dark:bg-brand-primary/10 border-brand-primary shadow-sm shadow-brand-primary/10'
                                     : isAccessible
-                                        ? 'border-transparent hover:bg-slate-50 dark:hover:bg-slate-800'
+                                        ? 'border-transparent hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800'
                                         : 'border-transparent opacity-50 cursor-not-allowed'
                                     }`}
                             >
@@ -178,7 +178,7 @@ const LessonView = () => {
                                     )}
                                 </div>
                                 <div className="flex-1">
-                                    <h4 className={`text-sm font-bold ${isActive ? 'text-brand-primary' : isAccessible ? 'text-slate-700 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500'
+                                    <h4 className={`text-sm font-bold ${isActive ? 'text-brand-primary' : isAccessible ? 'text-slate-700 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 dark:text-slate-400'
                                         }`}>
                                         {lesson.title}
                                     </h4>
@@ -377,11 +377,11 @@ const LessonView = () => {
                 </div>
 
                 {/* Right: Interactive Panel (Code/Chat) */}
-                <div className="w-full md:w-[420px] lg:w-[480px] flex flex-col bg-white border-l border-slate-200 shadow-2xl z-10">
-                    <div className="flex border-b border-slate-200 bg-slate-50">
+                <div className="w-full md:w-[420px] lg:w-[480px] flex flex-col bg-white dark:bg-slate-800 border-l border-slate-200 dark:border-slate-700 shadow-2xl z-10">
+                    <div className="flex border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
                         <button
                             onClick={() => setActiveTab('code')}
-                            className={`flex-1 py-4 text-sm font-bold border-b-2 transition-all hover:bg-white ${activeTab === 'code' ? 'border-brand-primary text-brand-primary bg-white shadow-sm' : 'border-transparent text-slate-500'
+                            className={`flex-1 py-4 text-sm font-bold border-b-2 transition-all hover:bg-white dark:bg-slate-800 ${activeTab === 'code' ? 'border-brand-primary text-brand-primary bg-white dark:bg-slate-800 shadow-sm' : 'border-transparent text-slate-500 dark:text-slate-400'
                                 }`}
                         >
                             <div className="flex items-center justify-center">
@@ -391,7 +391,7 @@ const LessonView = () => {
                         </button>
                         <button
                             onClick={() => setActiveTab('chat')}
-                            className={`flex-1 py-4 text-sm font-bold border-b-2 transition-all hover:bg-white ${activeTab === 'chat' ? 'border-brand-primary text-brand-primary bg-white shadow-sm' : 'border-transparent text-slate-500'
+                            className={`flex-1 py-4 text-sm font-bold border-b-2 transition-all hover:bg-white dark:bg-slate-800 ${activeTab === 'chat' ? 'border-brand-primary text-brand-primary bg-white dark:bg-slate-800 shadow-sm' : 'border-transparent text-slate-500 dark:text-slate-400'
                                 }`}
                         >
                             <div className="flex items-center justify-center">
@@ -403,10 +403,10 @@ const LessonView = () => {
 
                     <div className="flex-1 overflow-hidden relative">
                         {activeTab === 'code' ? (
-                            <div className="flex flex-col h-full bg-slate-50">
+                            <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900">
                                 {/* Toolbar */}
-                                <div className="flex items-center justify-between p-2 bg-slate-100 border-b border-slate-200">
-                                    <span className="text-xs text-slate-500 font-mono ml-2 font-bold">main.php</span>
+                                <div className="flex items-center justify-between p-2 bg-slate-100 border-b border-slate-200 dark:border-slate-700">
+                                    <span className="text-xs text-slate-500 dark:text-slate-400 font-mono ml-2 font-bold">main.php</span>
                                     <button
                                         onClick={handleRun}
                                         disabled={isRunning}
@@ -438,9 +438,9 @@ const LessonView = () => {
                                 </div>
 
                                 {/* Terminal Output */}
-                                <div className="h-1/3 min-h-[150px] bg-white flex flex-col border-t border-slate-200">
-                                    <div className="flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-200 shadow-sm">
-                                        <div className="flex items-center space-x-2 text-slate-600">
+                                <div className="h-1/3 min-h-[150px] bg-white dark:bg-slate-800 flex flex-col border-t border-slate-200 dark:border-slate-700">
+                                    <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-sm">
+                                        <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-300">
                                             <Terminal size={12} />
                                             <span className="text-xs font-mono font-bold tracking-wider">Terminal Output</span>
                                         </div>

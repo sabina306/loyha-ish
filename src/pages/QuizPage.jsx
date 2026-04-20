@@ -21,8 +21,8 @@ const QuizPage = () => {
     if (!quiz) {
         return (
             <div className="min-h-screen bg-transparent flex items-center justify-center">
-                <div className="text-center bg-white p-8 rounded-3xl shadow-xl border border-slate-200">
-                    <h2 className="text-2xl font-black text-slate-800 mb-4">Test topilmadi</h2>
+                <div className="text-center bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700">
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-gray-200 mb-4">Test topilmadi</h2>
                     <button onClick={() => navigate('/courses')} className="px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-accent text-white rounded-xl shadow-md hover:shadow-lg transition-all font-bold">
                         Kurslarga qaytish
                     </button>
@@ -94,7 +94,7 @@ const QuizPage = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-white border border-slate-200 shadow-2xl rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+                        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xl rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl -z-10" />
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl -z-10" />
@@ -112,10 +112,10 @@ const QuizPage = () => {
                             {passed ? <Trophy size={40} className="text-white" /> : <RotateCcw size={40} className="text-white" />}
                         </motion.div>
 
-                        <h2 className="text-3xl font-black text-slate-800 mb-2">
+                        <h2 className="text-3xl font-black text-slate-800 dark:text-gray-200 mb-2">
                             {passed ? "Tabriklaymiz! 🎉" : "Qayta urinib ko'ring! 💪"}
                         </h2>
-                        <p className="text-slate-600 font-medium mb-8">
+                        <p className="text-slate-600 dark:text-slate-300 font-medium mb-8">
                             {passed 
                                 ? `Siz "${quiz.title}" testini muvaffaqiyatli topshirdingiz! Endi keyingi darslarni davom ettirishingiz mumkin.` 
                                 : `O'tish uchun kamida ${quiz.passingScore}% to'plash kerak.`
@@ -138,14 +138,14 @@ const QuizPage = () => {
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <motion.span 
-                                    className="text-4xl font-black text-slate-800"
+                                    className="text-4xl font-black text-slate-800 dark:text-gray-200"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 1 }}
                                 >
                                     {percentage}%
                                 </motion.span>
-                                <span className="text-xs text-slate-500 font-bold">{score}/{totalQuestions}</span>
+                                <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">{score}/{totalQuestions}</span>
                             </div>
                         </div>
 
@@ -163,7 +163,7 @@ const QuizPage = () => {
                         <div className="flex flex-col sm:flex-row gap-3">
                             <button
                                 onClick={handleRestart}
-                                className="flex-1 py-3 px-6 rounded-xl border-2 border-slate-200 text-slate-700 bg-white hover:bg-slate-50 hover:border-brand-primary/50 shadow-sm transition-all flex items-center justify-center space-x-2 font-bold"
+                                className="flex-1 py-3 px-6 rounded-xl border-2 border-slate-200 dark:border-slate-700 text-slate-700 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 hover:border-brand-primary/50 shadow-sm transition-all flex items-center justify-center space-x-2 font-bold"
                             >
                                 <RotateCcw size={18} />
                                 <span>Qayta topshirish</span>
@@ -186,18 +186,18 @@ const QuizPage = () => {
         <div className="min-h-[calc(100vh-56px)] md:min-h-screen bg-transparent py-8 px-4">
             <div className="max-w-3xl mx-auto">
                 <div className="flex items-center justify-between mb-6">
-                    <button onClick={() => navigate('/courses')} className="flex items-center text-slate-500 hover:text-brand-primary transition-colors group font-semibold">
+                    <button onClick={() => navigate('/courses')} className="flex items-center text-slate-500 dark:text-slate-400 hover:text-brand-primary transition-colors group font-semibold">
                         <ChevronLeft size={18} className="mr-1 group-hover:-translate-x-1 transition-transform" />
                         <span className="text-sm">Kurslarga qaytish</span>
                     </button>
-                    <div className="flex items-center space-x-2 text-sm bg-white border border-slate-200 px-3 py-1.5 rounded-full shadow-sm">
+                    <div className="flex items-center space-x-2 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-full shadow-sm">
                         <Sparkles size={16} className="text-brand-accent" />
-                        <span className="text-slate-800 font-bold">{quiz.title}</span>
+                        <span className="text-slate-800 dark:text-gray-200 font-bold">{quiz.title}</span>
                     </div>
                 </div>
 
                 <div className="mb-8">
-                    <div className="flex justify-between text-xs text-slate-600 font-bold mb-2">
+                    <div className="flex justify-between text-xs text-slate-600 dark:text-slate-300 font-bold mb-2">
                         <span>Savol {currentQuestion + 1}/{totalQuestions}</span>
                         <span>{Math.round(progress)}%</span>
                     </div>
@@ -218,14 +218,14 @@ const QuizPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
                         transition={{ duration: 0.3 }}
-                        className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl"
+                        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl overflow-hidden shadow-2xl"
                     >
                         <div className="p-6 md:p-8 border-b border-slate-100 bg-slate-50/50">
                             <div className="flex items-start space-x-4">
                                 <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-white shadow-md font-black text-sm">
                                     {currentQuestion + 1}
                                 </div>
-                                <h3 className="text-lg md:text-xl font-black text-slate-800 leading-relaxed flex-1">
+                                <h3 className="text-lg md:text-xl font-black text-slate-800 dark:text-gray-200 leading-relaxed flex-1">
                                     {question.question}
                                 </h3>
                             </div>
@@ -233,8 +233,8 @@ const QuizPage = () => {
 
                         <div className="p-6 md:p-8 space-y-3">
                             {question.options.map((option, index) => {
-                                let borderColor = 'border-slate-200 hover:border-brand-primary/50 shadow-sm';
-                                let bgColor = 'bg-white hover:bg-slate-50';
+                                let borderColor = 'border-slate-200 dark:border-slate-700 hover:border-brand-primary/50 shadow-sm';
+                                let bgColor = 'bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700';
                                 let textColor = 'text-slate-700';
                                 let icon = null;
 
@@ -267,7 +267,7 @@ const QuizPage = () => {
                                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 transition-colors ${
                                             selectedAnswer === index && !showExplanation 
                                                 ? 'bg-gradient-to-r from-brand-primary to-brand-accent text-white shadow-md' 
-                                                : 'bg-slate-100 text-slate-500'
+                                                : 'bg-slate-100 text-slate-500 dark:text-slate-400'
                                         }`}>
                                             {String.fromCharCode(65 + index)}
                                         </div>
@@ -298,7 +298,7 @@ const QuizPage = () => {
                                                 <h4 className={`font-black text-sm mb-1 ${selectedAnswer === question.correct ? 'text-green-700' : 'text-red-600'}`}>
                                                     {selectedAnswer === question.correct ? "To'g'ri! ✨" : "Noto'g'ri 😕"}
                                                 </h4>
-                                                <p className="text-slate-600 font-medium text-sm leading-relaxed">
+                                                <p className="text-slate-600 dark:text-slate-300 font-medium text-sm leading-relaxed">
                                                     {question.explanation}
                                                 </p>
                                             </div>
@@ -309,7 +309,7 @@ const QuizPage = () => {
                         </AnimatePresence>
 
                         <div className="p-6 md:p-8 border-t border-slate-100 flex justify-between items-center bg-slate-50/50">
-                            <div className="text-sm text-slate-500 font-bold">
+                            <div className="text-sm text-slate-500 dark:text-slate-400 font-bold">
                                 Ball: <span className="text-brand-primary text-lg">{score}</span>/{currentQuestion + (showExplanation ? 1 : 0)}
                             </div>
                             {!showExplanation ? (

@@ -138,7 +138,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                                                         onChange={e => setDisplayName(e.target.value)}
                                                         onKeyDown={e => e.key === 'Enter' && handleSaveName()}
                                                         placeholder={t('settings_display_name_placeholder')}
-                                                        className="flex-1 px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:focus:bg-slate-750 transition-all font-medium"
+                                                        className="flex-1 px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:bg-slate-800 dark:focus:bg-slate-750 transition-all font-medium"
                                                     />
                                                     <motion.button
                                                         onClick={handleSaveName}
@@ -263,7 +263,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                                                 }`}
                                             >
                                                 {/* Light preview */}
-                                                <div className="w-full h-16 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 flex items-center justify-center shadow-inner">
+                                                <div className="w-full h-16 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-inner">
                                                     <Sun size={24} className="text-yellow-500" />
                                                 </div>
                                                 <div className="text-center">
@@ -293,7 +293,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                                                 whileTap={{ scale: 0.95 }}
                                             >
                                                 <motion.div
-                                                    className="absolute top-1 w-5 h-5 bg-white rounded-full shadow-md"
+                                                    className="absolute top-1 w-5 h-5 bg-white dark:bg-slate-800 rounded-full shadow-md"
                                                     animate={{ left: isDark ? '30px' : '4px' }}
                                                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                                                 />

@@ -70,10 +70,10 @@ const Navbar = () => {
                 {/* Collapse Toggle */}
                 <button
                     onClick={() => toggleCollapsed()}
-                    className="absolute top-5 -right-3 w-6 h-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 shadow-md rounded-full flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-brand-primary/50 transition-all z-10"
+                    className="absolute top-5 -right-3 w-6 h-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 shadow-md rounded-full flex items-center justify-center hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-700 hover:border-brand-primary/50 transition-all z-10"
                     title={collapsed ? "Kengaytirish" : "Yig'ish"}
                 >
-                    <ChevronDown size={12} className={`text-slate-500 transition-transform duration-300 ${collapsed ? '-rotate-90' : 'rotate-90'}`} />
+                    <ChevronDown size={12} className={`text-slate-500 dark:text-slate-400 transition-transform duration-300 ${collapsed ? '-rotate-90' : 'rotate-90'}`} />
                 </button>
 
                 {/* Nav Links */}
@@ -181,7 +181,7 @@ const Navbar = () => {
                                         <div className="p-3 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
                                             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Sizning accountingiz</p>
                                             <p className="text-sm text-slate-800 dark:text-white truncate font-black">{user?.displayName || user?.email?.split('@')[0]}</p>
-                                            <p className="text-xs text-slate-400 dark:text-slate-500 truncate">{user?.email}</p>
+                                            <p className="text-xs text-slate-400 dark:text-slate-500 dark:text-slate-400 truncate">{user?.email}</p>
                                         </div>
 
                                         <button

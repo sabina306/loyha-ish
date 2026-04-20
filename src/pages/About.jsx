@@ -50,7 +50,7 @@ const About = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pt-4 pb-16">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#111827] pt-4 pb-16">
             {/* Hero Section */}
             <div className="relative overflow-hidden py-20">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl" />
@@ -67,14 +67,14 @@ const About = () => {
                             <span className="text-sm font-medium">Platforma haqida</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl font-black mb-6 text-slate-800">
+                        <h1 className="text-5xl md:text-6xl font-black mb-6 text-slate-800 dark:text-white">
                             Kelajakni Bugun <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">
                                 O'rganing
                             </span>
                         </h1>
 
-                        <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto">
+                        <p className="text-xl text-slate-600 dark:text-gray-300 font-medium max-w-3xl mx-auto">
                             PHPMaster - bu zamonaviy texnologiyalar va sun'iy intellekt yordamida PHP dasturlashni o'rganish platformasi.
                             Biz sizga eng yaxshi ta'lim tajribasini taqdim etamiz.
                         </p>
@@ -88,11 +88,11 @@ const About = () => {
                         className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
                     >
                         {stats.map((stat, index) => (
-                            <div key={index} className="bg-white border border-slate-200 shadow-xl shadow-brand-primary/5 rounded-3xl p-6 text-center transform hover:-translate-y-1 transition-transform">
+                            <div key={index} className="bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 shadow-xl shadow-brand-primary/5 rounded-3xl p-6 text-center transform hover:-translate-y-1 transition-transform">
                                 <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary mb-2">
                                     {stat.value}
                                 </div>
-                                <div className="text-slate-500 font-bold text-sm tracking-wide uppercase">{stat.label}</div>
+                                <div className="text-slate-500 dark:text-gray-400 font-bold text-sm tracking-wide uppercase">{stat.label}</div>
                             </div>
                         ))}
                     </motion.div>
@@ -110,7 +110,7 @@ const About = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 * index }}
-                                className="group relative bg-white border border-slate-200 shadow-xl shadow-brand-primary/5 rounded-3xl p-8 hover:border-brand-primary/30 transition-all duration-300 overflow-hidden"
+                                className="group relative bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 shadow-xl shadow-brand-primary/5 rounded-3xl p-8 hover:border-brand-primary/30 transition-all duration-300 overflow-hidden"
                             >
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500`} />
 
@@ -118,11 +118,11 @@ const About = () => {
                                     <feature.icon className="text-white" size={28} />
                                 </div>
 
-                                <h3 className="text-xl font-black text-slate-800 mb-3">
+                                <h3 className="text-xl font-black text-slate-800 dark:text-white mb-3">
                                     {feature.title}
                                 </h3>
 
-                                <p className="text-slate-600 font-medium leading-relaxed">
+                                <p className="text-slate-600 dark:text-gray-300 font-medium leading-relaxed">
                                     {feature.description}
                                 </p>
                             </motion.div>
@@ -134,12 +134,12 @@ const About = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
-                        className="mt-20 bg-white border border-slate-200 shadow-2xl shadow-brand-primary/5 rounded-[40px] p-12 relative overflow-hidden"
+                        className="mt-20 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 shadow-2xl shadow-brand-primary/5 rounded-[40px] p-12 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl -z-10" />
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl -z-10" />
                         
-                        <h2 className="text-3xl font-black text-slate-800 mb-10 text-center">
+                        <h2 className="text-3xl font-black text-slate-800 dark:text-white mb-10 text-center">
                             Nima uchun bizni tanlaysiz?
                         </h2>
 
@@ -152,11 +152,11 @@ const About = () => {
                                 "Eng so'nggi PHP standartlari va best practices",
                                 "Hamjamiyat va mentorlik dasturlari"
                             ].map((item, index) => (
-                                <div key={index} className="flex items-center space-x-4 p-4 bg-slate-50 rounded-2xl border border-slate-100/50">
+                                <div key={index} className="flex items-center space-x-4 p-4 bg-slate-50 dark:bg-gray-700/50 rounded-2xl border border-slate-100/50 dark:border-gray-600">
                                     <div className="p-2 bg-green-100 rounded-xl">
                                         <CheckCircle className="text-green-500 flex-shrink-0" size={24} />
                                     </div>
-                                    <span className="text-slate-700 font-bold">{item}</span>
+                                    <span className="text-slate-700 dark:text-gray-200 font-bold">{item}</span>
                                 </div>
                             ))}
                         </div>

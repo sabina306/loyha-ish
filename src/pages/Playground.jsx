@@ -120,11 +120,11 @@ const Playground = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="lg:w-1/3 flex flex-col h-full bg-white rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden"
+                    className="lg:w-1/3 flex flex-col h-full bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl relative overflow-hidden"
                 >
                     {/* Terminal Header */}
-                    <div className="flex items-center justify-between px-4 py-3 bg-slate-50 border-b border-slate-200">
-                        <div className="flex items-center space-x-2 text-slate-600">
+                    <div className="flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+                        <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-300">
                             <Terminal size={16} />
                             <span className="text-sm font-mono font-bold">Terminal Output</span>
                         </div>
@@ -135,7 +135,7 @@ const Playground = () => {
                     </div>
 
                     {/* Terminal Body */}
-                    <div className="flex-1 p-4 font-mono text-sm overflow-auto custom-scrollbar bg-white">
+                    <div className="flex-1 p-4 font-mono text-sm overflow-auto custom-scrollbar bg-white dark:bg-slate-800">
                         {output ? (
                             <motion.div
                                 initial={{ opacity: 0 }}

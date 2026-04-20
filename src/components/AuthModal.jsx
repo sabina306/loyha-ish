@@ -119,10 +119,10 @@ const AuthModal = ({ isOpen, onClose, onSuccess }) => {
                                         </div>
                                     </div>
 
-                                    <h2 className="text-2xl font-black text-center mb-2 text-slate-800">
+                                    <h2 className="text-2xl font-black text-center mb-2 text-slate-800 dark:text-gray-200">
                                         {isLogin ? 'Tizimga kirish' : 'Ro\'yxatdan o\'tish'} 🎉
                                     </h2>
-                                    <p className="text-center text-slate-500 font-medium mb-8">
+                                    <p className="text-center text-slate-500 dark:text-slate-400 font-medium mb-8">
                                         {isLogin ? 'Email va parolingizni kiriting' : 'Yangi akkaunt yaratish'}
                                     </p>
 
@@ -145,7 +145,7 @@ const AuthModal = ({ isOpen, onClose, onSuccess }) => {
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     placeholder="sizning@email.com"
-                                                    className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:focus:bg-slate-750 transition-all shadow-sm"
+                                                    className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:bg-slate-800 dark:focus:bg-slate-750 transition-all shadow-sm"
                                                     required
                                                 />
                                             </div>
@@ -162,7 +162,7 @@ const AuthModal = ({ isOpen, onClose, onSuccess }) => {
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}
                                                     placeholder="••••••••"
-                                                    className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white transition-all shadow-sm"
+                                                    className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:bg-slate-800 transition-all shadow-sm"
                                                     required
                                                     minLength={6}
                                                 />
@@ -182,7 +182,7 @@ const AuthModal = ({ isOpen, onClose, onSuccess }) => {
                                                         value={confirmPassword}
                                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                                         placeholder="••••••••"
-                                                        className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white transition-all shadow-sm"
+                                                        className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white dark:bg-slate-800 transition-all shadow-sm"
                                                         required
                                                     />
                                                 </div>
@@ -205,7 +205,7 @@ const AuthModal = ({ isOpen, onClose, onSuccess }) => {
                                                 setPassword('');
                                                 setConfirmPassword('');
                                             }}
-                                            className="text-sm text-slate-500 font-bold hover:text-brand-primary transition-colors"
+                                            className="text-sm text-slate-500 dark:text-slate-400 font-bold hover:text-brand-primary transition-colors"
                                         >
                                             {isLogin ? 'Akkauntingiz yo\'qmi? Ro\'yxatdan o\'ting' : 'Allaqachon akkauntingiz bormi? Kiring'}
                                         </button>

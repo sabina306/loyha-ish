@@ -104,12 +104,12 @@ const Hero = () => {
                                 Boshlash
                                 <Rocket className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={20} />
                             </span>
-                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
+                            <div className="absolute inset-0 bg-white dark:bg-slate-800 opacity-0 group-hover:opacity-20 transition-opacity" />
                         </button>
 
                         <button
                             onClick={() => navigate('/about')}
-                            className="px-10 py-5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-brand-primary/50 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-lg hover:shadow-xl transition-all text-slate-800 dark:text-slate-200 font-bold flex items-center justify-center group"
+                            className="px-10 py-5 rounded-2xl border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-brand-primary/50 hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-700 shadow-lg hover:shadow-xl transition-all text-slate-800 dark:text-slate-200 font-bold flex items-center justify-center group"
                         >
                             Kurs Haqida
                             <Star size={18} className="ml-2 text-amber-500 group-hover:rotate-45 transition-transform" />
@@ -122,7 +122,7 @@ const Hero = () => {
                     >
                         <div className="flex -space-x-3">
                             {[1, 2, 3, 4].map(i => (
-                                <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden shadow-md">
+                                <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden shadow-md">
                                     <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="user" />
                                 </div>
                             ))}
@@ -166,7 +166,7 @@ const Hero = () => {
                                     <div className="flex">
                                         <span className="text-brand-primary">class</span>
                                         <span className="text-amber-500 font-semibold ml-2">FutureDeveloper</span>
-                                        <span className="text-slate-500 ml-2">{"{"}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 ml-2">{"{"}</span>
                                     </div>
                                     <div className="pl-6 space-y-2">
                                         <div className="flex">
@@ -179,7 +179,7 @@ const Hero = () => {
                                             <span className="text-brand-primary">public function</span>
                                             <span className="text-amber-500 ml-2">masterPHP</span>
                                             <span className="text-slate-400 ml-2">()</span>
-                                            <span className="text-slate-500 ml-2">{"{"}</span>
+                                            <span className="text-slate-500 dark:text-slate-400 ml-2">{"{"}</span>
                                         </div>
                                         <div className="pl-6 flex items-center">
                                             <span className="text-brand-primary">return</span>
@@ -190,9 +190,9 @@ const Hero = () => {
                                                 className="w-2 h-4 bg-brand-primary ml-1"
                                             />
                                         </div>
-                                        <div className="text-slate-500">{"}"}</div>
+                                        <div className="text-slate-500 dark:text-slate-400">{"}"}</div>
                                     </div>
-                                    <div className="text-slate-500">{"}"}</div>
+                                    <div className="text-slate-500 dark:text-slate-400">{"}"}</div>
                                 </div>
 
                                 {/* AI Analysis Overlay */}
@@ -200,14 +200,14 @@ const Hero = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.5 }}
-                                    className="mt-8 pt-6 border-t border-slate-200 flex items-start space-x-3"
+                                    className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex items-start space-x-3"
                                 >
                                     <div className="p-2 bg-brand-primary/10 rounded-lg">
                                         <Bot size={16} className="text-brand-primary" />
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-[12px] text-slate-600 italic font-medium">"Sintaksis mukammal. OOP tamoyillari asosida yaratilgan. Davom etishga tayyor."</p>
-                                        <div className="mt-2 w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                        <p className="text-[12px] text-slate-600 dark:text-slate-400 italic font-medium">"Sintaksis mukammal. OOP tamoyillari asosida yaratilgan. Davom etishga tayyor."</p>
+                                        <div className="mt-2 w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 animate={{ width: "100%" }}
@@ -224,7 +224,7 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, -15, 0] }}
                             transition={{ repeat: Infinity, duration: 4 }}
-                            className="absolute -top-8 -right-8 p-5 bg-white backdrop-blur-xl border border-slate-100 rounded-2xl shadow-xl z-20"
+                            className="absolute -top-8 -right-8 p-5 bg-white dark:bg-slate-800 backdrop-blur-xl border border-slate-100 dark:border-slate-700 rounded-2xl shadow-xl z-20"
                         >
                             <Cpu className="text-brand-primary h-10 w-10 animate-pulse" />
                         </motion.div>
@@ -232,15 +232,15 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, 15, 0] }}
                             transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-                            className="absolute -bottom-8 -left-8 p-4 bg-white backdrop-blur-xl border border-slate-100 rounded-2xl shadow-xl z-20"
+                            className="absolute -bottom-8 -left-8 p-4 bg-white dark:bg-slate-800 backdrop-blur-xl border border-slate-100 dark:border-slate-700 rounded-2xl shadow-xl z-20"
                         >
                             <div className="flex items-center space-x-3">
-                                <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100">
+                                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center border border-emerald-100 dark:border-emerald-800/50">
                                     <Zap size={16} className="text-emerald-500" />
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-slate-400 font-medium">Server Latency</p>
-                                    <p className="text-xs text-slate-800 font-bold">12ms</p>
+                                    <p className="text-xs text-slate-800 dark:text-slate-200 font-bold">12ms</p>
                                 </div>
                             </div>
                         </motion.div>

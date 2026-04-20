@@ -144,11 +144,11 @@ const Courses = () => {
                                     </p>
 
                                     <div className="grid grid-cols-2 gap-4 mb-8">
-                                        <div className="flex items-center space-x-2 text-slate-500 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
+                                        <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
                                             <Clock size={14} className="text-brand-primary"/>
                                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{course.duration}</span>
                                         </div>
-                                        <div className="flex items-center space-x-2 text-slate-500 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
+                                        <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-700 px-3 py-2 rounded-xl shadow-sm border border-slate-100 dark:border-slate-600">
                                             <TrendingUp size={14} className="text-brand-secondary"/>
                                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{course.students}</span>
                                         </div>

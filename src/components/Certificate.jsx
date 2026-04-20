@@ -8,7 +8,7 @@ const Certificate = ({ userName, completionDate, certificateId, onDownload }) =>
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative w-full max-w-4xl mx-auto bg-white p-12 rounded-2xl shadow-2xl"
+            className="relative w-full max-w-4xl mx-auto bg-white dark:bg-slate-800 p-12 rounded-2xl shadow-2xl"
             id="certificate"
         >
             {/* Decorative Border */}
@@ -35,7 +35,7 @@ const Certificate = ({ userName, completionDate, certificateId, onDownload }) =>
                             <Award size={48} className="text-white" />
                         </div>
                     </motion.div>
-                    <h1 className="text-4xl font-bold text-gray-800 mb-2">PHPMaster Platform</h1>
+                    <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-2">PHPMaster Platform</h1>
                     <p className="text-gray-600 text-sm uppercase tracking-widest">Ta'lim Platformasi</p>
                 </div>
 
@@ -64,7 +64,7 @@ const Certificate = ({ userName, completionDate, certificateId, onDownload }) =>
                     </p>
 
                     <div className="mb-8 px-8 py-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
-                        <h3 className="text-3xl font-bold text-gray-800">
+                        <h3 className="text-3xl font-bold text-gray-800 dark:text-gray-200">
                             {userName}
                         </h3>
                     </div>
