@@ -140,13 +140,13 @@ const Playground = () => {
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                className="text-slate-700 whitespace-pre-wrap font-bold"
+                                className="text-slate-700 dark:text-gray-300 whitespace-pre-wrap font-bold"
                             >
                                 <span className="text-slate-400 select-none">$ php script.php</span>
                                 <br />
                                 {output}
                                 <br />
-                                <span className="text-slate-400 font-medium select-none mt-2 block">Process finished with exit code 0</span>
+                                <span className="text-slate-400 dark:text-slate-500 font-medium select-none mt-2 block">Process finished with exit code 0</span>
                             </motion.div>
                         ) : (
                             <div className="h-full flex flex-col items-center justify-center text-slate-400">

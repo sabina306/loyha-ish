@@ -15,7 +15,7 @@ const CodeEditor = ({ code, onChange }) => {
 
     return (
         <div className="flex flex-col h-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-xl ring-1 ring-slate-100">
-            <div className="flex items-center justify-between px-4 py-3 bg-slate-50/80 border-b border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between px-4 py-3 bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-700">
                 <div className="flex items-center space-x-2">
                     <div className="flex space-x-1.5 mr-4">
                         <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -34,7 +34,7 @@ const CodeEditor = ({ code, onChange }) => {
                     {/* Line Numbers */}
                     <div
                         ref={lineNumbersRef}
-                        className="bg-slate-50/50 text-slate-400 select-none text-right pr-4 pl-4 py-4 border-r border-slate-200 dark:border-slate-700 overflow-hidden w-16 leading-relaxed font-bold"
+                        className="bg-slate-50/50 dark:bg-slate-900/50 text-slate-400 select-none text-right pr-4 pl-4 py-4 border-r border-slate-200 dark:border-slate-700 overflow-hidden w-16 leading-relaxed font-bold"
                     >
                         {lineNumbers.map(num => (
                             <div key={num}>{num}</div>
@@ -57,10 +57,10 @@ const CodeEditor = ({ code, onChange }) => {
 
             <div className="bg-brand-primary/10 backdrop-blur text-brand-primary px-4 py-2 text-[10px] font-bold tracking-wider flex justify-between items-center border-t border-brand-primary/20">
                 <div className="flex space-x-4">
-                    <span className="bg-white/50 px-2 rounded-md">PHP 8.2</span>
-                    <span className="bg-white/50 px-2 rounded-md">UTF-8</span>
+                    <span className="bg-white/50 dark:bg-black/20 px-2 rounded-md">PHP 8.2</span>
+                    <span className="bg-white/50 dark:bg-black/20 px-2 rounded-md">UTF-8</span>
                 </div>
-                <span className="bg-white/50 px-2 rounded-md">Ln {lines}, Col 1</span>
+                <span className="bg-white/50 dark:bg-black/20 px-2 rounded-md">Ln {lines}, Col 1</span>
             </div>
         </div>
     );
